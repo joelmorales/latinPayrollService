@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.swacorp.mx.dataproviders.DataProviderTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-10-15T20:56:53" hostname="SY4-5489482" time="0.046">
+  <properties/>
+  <testcase name="when_dataService_Insert_Correct_EmployeePayment" classname="com.swacorp.mx.dataproviders.DataProviderTest" time="0.015"/>
+  <testcase name="when_dataService_send_the_request_then_return_One_CustomersAccount" classname="com.swacorp.mx.dataproviders.DataProviderTest" time="0.0"/>
+  <testcase name="when_customerTableDao_throwAException_then_dataProviderException_is_raise" classname="com.swacorp.mx.dataproviders.DataProviderTest" time="0.031"/>
+  <testcase name="when_dataService_insert_Customer_with_CorrectInformation" classname="com.swacorp.mx.dataproviders.DataProviderTest" time="0.0"/>
+  <testcase name="when_foundEmployeePayments_is_called" classname="com.swacorp.mx.dataproviders.DataProviderTest" time="0.0"/>
+  <testcase name="when_customerDataDAO_return_empty_object_then_dataProviderException_is_raise" classname="com.swacorp.mx.dataproviders.DataProviderTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

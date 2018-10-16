@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.swacorp.mx.domain.PayrollTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-10-15T20:56:53" hostname="SY4-5489482" time="0.0">
+  <properties/>
+  <testcase name="when_EmployeeType_IsMonthly_Then_PaymentRulesPaid_InFull" classname="com.swacorp.mx.domain.PayrollTest" time="0.0"/>
+  <testcase name="when_EmployeeType_IsContractor_Then_paymentRulesPaid_ByHour" classname="com.swacorp.mx.domain.PayrollTest" time="0.0"/>
+  <testcase name="when_Payroll_recive_customerAccount" classname="com.swacorp.mx.domain.PayrollTest" time="0.0"/>
+  <testcase name="when_Payroll_Service_Sent_Request_to_DataServices" classname="com.swacorp.mx.domain.PayrollTest" time="0.0"/>
+  <testcase name="when_EmployeeType_IsHourly_Then_PaymentRulesPaid_ByHour" classname="com.swacorp.mx.domain.PayrollTest" time="0.0"/>
+  <testcase name="when_EmployeeType_IsFullTime_Then_OvertimeRules_IsDouble" classname="com.swacorp.mx.domain.PayrollTest" time="0.0"/>
+  <testcase name="when_EmployeeType_IsHourle_Then_OvertimeRules_IsOneAndHalf" classname="com.swacorp.mx.domain.PayrollTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
