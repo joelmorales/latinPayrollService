@@ -1,7 +1,5 @@
 package com.swacorp.mx.entrypoints.rest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +13,7 @@ import com.swacorp.mx.domain.Payroll;
 @RestController
 public class ServiceManagementEndPoint {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ServiceManagementEndPoint.class);
+	//private static final Logger LOGGER = LoggerFactory.getLogger(ServiceManagementEndPoint.class);
 	public static final String API_PAY_PATH = "/start";
 	public static final String API_MNT_PATH = "/setup";
 	
