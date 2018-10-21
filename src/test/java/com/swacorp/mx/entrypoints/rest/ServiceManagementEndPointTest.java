@@ -31,7 +31,7 @@ public class ServiceManagementEndPointTest {
 
 	@Before
 	public void setUp() {
-		
+		request = new DataRequest(ID, NAME, FREQUENCY, EMPLOYEE_TYPE,10);
 	}
 
 	//@Test
@@ -43,39 +43,47 @@ public class ServiceManagementEndPointTest {
 
 	//@Test
 	public void when_ServiceManagment_receieve_response_status_from_Domain() {
-		
+		payrollProcessRequestReturnStatusOK();
+		String status = whenServiceManagermentSendPayroll();
+		thenPayrollProcessRequestResponseWithOkStatus(status);
 	}
 
 	//@Test
 	public void when_receiveBadParameter_ApplicationExceptionIsRaised() {
-		//assertThatExceptionOfType(ApplicationException.class)
-		//.isThrownBy(() -> payroll.processRequest(any(DataRequest.class)));
+		assertThatExceptionOfType(ApplicationException.class)
+		.isThrownBy(() -> payroll.processRequest(any(DataRequest.class)));
 	}
 	
 	private void thenPayrollProcessRequestResponseWithOkStatus(String status) {
-		
+		assertEquals(STATUS_OK, status);
 	}
 
 	private String whenServiceManagermentSendPayroll() {
-		
+		//String status = service.sendPayroll(ID, NAME, hours);
+		//return status;
 		return null;
 	}
 
 	private void payrollProcessRequestReturnStatusOK() {
-		
+		//when(payroll.processRequest(any(DataRequest.class))).thenReturn(STATUS_OK);
 	}
 
 	private void whenServiceManagementRecieveRequest() {
-		
+		//service.sendPayroll(ID, NAME, hours);
 	}
 
 	private void thenLatinPayrollDomainReceiveTheRequest() {
 
-		//ArgumentCaptor<DataRequest> captor = ArgumentCaptor.forClass(DataRequest.class);
-		//verify(payroll, times(1)).processRequest(captor.capture());
-
-		//DataRequest actual = captor.getValue();
+		//verify(payroll, times(1)).processRequest(any(DataRequest.class));
 		
+		ArgumentCaptor<DataRequest> captor = ArgumentCaptor.forClass(DataRequest.class);
+		verify(payroll, times(1)).processRequest(captor.capture());
+
+		DataRequest actual = captor.getValue();
+		assertEquals(FREQUENCY, actual.getFrequencyTypes());
+		assertEquals(ID, actual.getId());
+		assertEquals(NAME, actual.getName());
+		assertEquals(EMPLOYEE_TYPE, actual.getEmployeeTypes());
 	}
 
 }

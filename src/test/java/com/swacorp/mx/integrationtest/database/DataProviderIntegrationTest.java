@@ -85,20 +85,25 @@ public class DataProviderIntegrationTest {
 	}
 
 	private void thenTheCorrectPaymentWasStored() {
-		
+		assertEquals(id, customerPayment.getId());
+		assertEquals(payment, customerPayment.getPayment(), 0);
 
 	}
 
 	private void givenSystemInsertCustomerPayment() {
-		
+		customerPayment = dataProvider.insertEmployeePayment(id, payment);
 	}
 
 	private void givenWeHaveACorrectPayment() {
-		
+		payment = 500;
 	}
 
 	private void thenTheCorrectCustomerWasStored() {
-		
+		assertEquals(id, customerAccount.getId());
+		assertEquals(name, customerAccount.getName());
+		assertEquals(payrollFrequency, customerAccount.getFrequency());
+		assertEquals(employeeType, customerAccount.getEmployeeType());
+		assertEquals(rate, customerAccount.getRate(), 0);
 	}
 
 	// Validate Exception with wrong data
@@ -106,21 +111,24 @@ public class DataProviderIntegrationTest {
 	// Find payment Data
 
 	private void whenClientInsertACustomer() {
-		
+		customerAccount = dataProvider.insertCustomer(datarequest);
 
 	}
 
 	private void giveWeHaveACorrectCustomer() {
-		
+		datarequest = new DataRequest(id, name, payrollFrequency, employeeType, rate);
 
 	}
 
 	private void whenClientRequestCustomerPayment() {
-		
+		customerPayments = dataProvider.findEmployeePayments(id);
+
 	}
 
 	private void thenCustomerPaymentsWereFound() {
-		
+		assertEquals(1, customerPayments.size());
+		customerPayment = customerPayments.get(0);
+
 	}
 
 }

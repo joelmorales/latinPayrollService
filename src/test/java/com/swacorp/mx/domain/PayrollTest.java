@@ -60,11 +60,17 @@ public class PayrollTest {
 	}
 	
 	private void then_MonthlyEmployeePaymentByHourIsCorrect() {
-		
+		payment=payroll.paymentRules(customerAccount, hours);
+		assertEquals(id,payrollresponse.getId());
+		assertEquals(payment,payrollresponse.getPayment(),0);
 	}
 
 	private void givenEmployeeTypeIsMonthly() {
-		
+		hours=160;
+		hourlyRate = 16.55;
+		request = getRequest();
+		customerAccount=new CustomerAccount(id,hourlyRate,name,WEEKLY,Payroll.FULLTIME);
+		when(dataService.getCustomerAccount(id)).thenReturn(customerAccount);
 		
 	}
 
@@ -85,38 +91,47 @@ public class PayrollTest {
 	
 	
 	private void givenCorrectCustomerAccount() {
-		
+		customerAccount=getCustomerAccount();
+		when(dataService.getCustomerAccount(id)).thenReturn(customerAccount);
 	}
 
 	private void whenPayrollCallProcessRequest() {
-		
+		payrollresponse = payroll.processRequest(request);
 	}
 
 	private void thenPayrollReturnTheCustomerAccountReturnedByDataSource() {
-		
+		assertEquals(id,payrollresponse.getId());
 	}
 
 	private void thenGetCustomerAccountIsRetrieve() {
-		
+		verify(dataService, times(1)).getCustomerAccount(id);
 	}
 
 	private void whenPayrollProcessRequestIsCalled() {
-		
+		payroll.processRequest(request);
 	}
 	
 
 	private void then_HourlyEmployeePaymentByHourIsCorrect() {
+		payment=payroll.paymentRules(customerAccount, hours);
+		assertEquals(id,payrollresponse.getId());
+		assertEquals(payment,payrollresponse.getPayment(),0);
 		
 	}
 
 	
 	
 	private void when_PayrollReceiveRequestForEmployeeType() {
-		
+		payrollresponse = payroll.processRequest(request);
 	}
 
 	private void givenEmployeeTypeIsHourly() {
+		hours=40;
+		hourlyRate = 14.55;
 		
+		request = getRequest();
+		customerAccount=getCustomerAccount();
+		when(dataService.getCustomerAccount(id)).thenReturn(customerAccount);
 	}
 
 	private DataRequest getRequest() {
