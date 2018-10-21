@@ -1,6 +1,6 @@
 package com.swacorp.mx.crosscutting;
 
-public enum employeeType {
+public enum EmployeeType {
 	HOURLY,WEEKLY,MONTHLY
 
 }

@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.swacorp.mx.crosscutting.CustomerAccount;
 import com.swacorp.mx.crosscutting.CustomerPayment;
-import com.swacorp.mx.dataproviders.DataProvider;
+import com.swacorp.mx.dataproviders.CustomersDataBase;
 import com.swacorp.mx.dataproviders.database.persistance.CustomerTableDAO;
 import com.swacorp.mx.dataproviders.database.persistance.EmployeePaymentTableDAO;
 import com.swacorp.mx.entrypoints.rest.DataRequest;
@@ -28,7 +28,7 @@ public class DataProviderIntegrationTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DataProviderIntegrationTest.class);
 
 	@Autowired
-	DataProvider dataProvider;
+	CustomersDataBase dataProvider;
 
 	@Autowired
 	CustomerTableDAO customerTableDAO;
@@ -85,25 +85,20 @@ public class DataProviderIntegrationTest {
 	}
 
 	private void thenTheCorrectPaymentWasStored() {
-		assertEquals(id, customerPayment.getId());
-		assertEquals(payment, customerPayment.getPayment(), 0);
+		
 
 	}
 
 	private void givenSystemInsertCustomerPayment() {
-		customerPayment = dataProvider.insertEmployeePayment(id, payment);
+		
 	}
 
 	private void givenWeHaveACorrectPayment() {
-		payment = 500;
+		
 	}
 
 	private void thenTheCorrectCustomerWasStored() {
-		assertEquals(id, customerAccount.getId());
-		assertEquals(name, customerAccount.getName());
-		assertEquals(payrollFrequency, customerAccount.getFrequency());
-		assertEquals(employeeType, customerAccount.getEmployeeType());
-		assertEquals(rate, customerAccount.getRate(), 0);
+		
 	}
 
 	// Validate Exception with wrong data
@@ -111,24 +106,21 @@ public class DataProviderIntegrationTest {
 	// Find payment Data
 
 	private void whenClientInsertACustomer() {
-		customerAccount = dataProvider.insertCustomer(datarequest);
+		
 
 	}
 
 	private void giveWeHaveACorrectCustomer() {
-		datarequest = new DataRequest(id, name, payrollFrequency, employeeType, rate);
+		
 
 	}
 
 	private void whenClientRequestCustomerPayment() {
-		customerPayments = dataProvider.findEmployeePayments(id);
-
+		
 	}
 
 	private void thenCustomerPaymentsWereFound() {
-		assertEquals(1, customerPayments.size());
-		customerPayment = customerPayments.get(0);
-
+		
 	}
 
 }

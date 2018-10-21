@@ -13,11 +13,11 @@ import com.swacorp.mx.dataproviders.database.persistance.EmployeePaymentTableDAO
 import com.swacorp.mx.domain.AccountDataServices;
 import com.swacorp.mx.entrypoints.rest.DataRequest;
 
-public class DataProvider implements AccountDataServices {
+public class CustomersDataBase implements AccountDataServices {
 	private CustomerTableDAO customerDao;
 	private EmployeePaymentTableDAO employeePayment;
 
-	public DataProvider(CustomerTableDAO customerTableDao, EmployeePaymentTableDAO employeePayment) {
+	public CustomersDataBase(CustomerTableDAO customerTableDao, EmployeePaymentTableDAO employeePayment) {
 		this.customerDao = customerTableDao;
 		this.employeePayment = employeePayment;
 	}

@@ -1,11 +1,11 @@
 package com.swacorp.mx.crosscutting;
 
-public class PayrollResponse {
+public class ServiceResponse {
 
 	private String id;
 	private double payment;
 	
-	public PayrollResponse(String id, double payment) {
+	public ServiceResponse(String id, double payment) {
 		this.id = id;
 		this.payment = payment;
 	}
