@@ -1,7 +1,7 @@
 package com.swacorp.mx.domain;
 
 import com.swacorp.mx.crosscutting.CustomerAccount;
-import com.swacorp.mx.crosscutting.PayrollResponse;
+import com.swacorp.mx.crosscutting.ServiceResponse;
 import com.swacorp.mx.entrypoints.rest.DataRequest;
 
 public class Payroll {
@@ -15,20 +15,20 @@ public class Payroll {
 		this.dataService = dataService;
 	}
 
-	public PayrollResponse processRequest(DataRequest dataRequest) {
+	public ServiceResponse processClientPayment(DataRequest dataRequest) {
 		CustomerAccount customerAccount=dataService.getCustomerAccount(dataRequest.getId());
-		double payment = paymentRules(customerAccount,dataRequest.getHours());
+		double payment = getPayment(customerAccount,dataRequest.getHours());
 		
-		return generatePayrollResponse(dataRequest.getId(),payment);
+		return getResponse(dataRequest.getId(),payment);
 
 	}
 
-	private PayrollResponse generatePayrollResponse(String id,double payment) {
-		PayrollResponse payrollResponse = new PayrollResponse(id,payment);
+	private ServiceResponse getResponse(String id,double payment) {
+		ServiceResponse payrollResponse = new ServiceResponse(id,payment);
 		return payrollResponse;
 	}
 	
-	protected double paymentRules(CustomerAccount customerAccount,double hours) {
+	protected double getPayment(CustomerAccount customerAccount,double hours) {
 		double payment=0.0;
 		if(customerAccount.getEmployeeType().equals(TEMPORARY)) {
 			payment=customerAccount.getRate()*hours;

@@ -3,7 +3,7 @@ package com.swacorp.mx.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.swacorp.mx.dataproviders.DataProvider;
+import com.swacorp.mx.dataproviders.CustomersDataBase;
 import com.swacorp.mx.dataproviders.database.persistance.CustomerTableDAO;
 import com.swacorp.mx.dataproviders.database.persistance.EmployeePaymentTableDAO;
 
@@ -11,8 +11,8 @@ import com.swacorp.mx.dataproviders.database.persistance.EmployeePaymentTableDAO
 public class DataProviderConfiguration {
 
 	@Bean
-	public DataProvider dataProvider(CustomerTableDAO customerTableDao, EmployeePaymentTableDAO employedDao) {
-		return new DataProvider(customerTableDao,employedDao);
+	public CustomersDataBase dataProvider(CustomerTableDAO customerTableDao, EmployeePaymentTableDAO employedDao) {
+		return new CustomersDataBase(customerTableDao,employedDao);
 	}
 	
 	

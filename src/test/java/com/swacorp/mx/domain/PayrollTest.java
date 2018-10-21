@@ -9,8 +9,8 @@ import static org.mockito.Mockito.when;
 import org.junit.Test;
 
 import com.swacorp.mx.crosscutting.CustomerAccount;
-import com.swacorp.mx.crosscutting.PayrollResponse;
-import com.swacorp.mx.dataproviders.DataProvider;
+import com.swacorp.mx.crosscutting.ServiceResponse;
+import com.swacorp.mx.dataproviders.CustomersDataBase;
 import com.swacorp.mx.entrypoints.rest.DataRequest;
 
 public class PayrollTest {
@@ -18,14 +18,14 @@ public class PayrollTest {
 
 	private static final String WEEKLY = "WEEKLY";
 	private DataRequest request = null;
-	private DataProvider dataService = mock(DataProvider.class);
+	private CustomersDataBase dataService = mock(CustomersDataBase.class);
 	private Payroll payroll = new Payroll(dataService);
 	private CustomerAccount customerAccount ;
 	private String id="10078";
 	private String name="Juan Miguel";
 	private double hours;
 	private double hourlyRate;
-	private PayrollResponse payrollresponse;
+	private ServiceResponse payrollresponse;
 	private double payment;
 	
 	@Test

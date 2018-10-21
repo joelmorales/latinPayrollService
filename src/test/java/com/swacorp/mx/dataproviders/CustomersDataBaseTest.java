@@ -25,11 +25,11 @@ import com.swacorp.mx.dataproviders.database.persistance.EmployeePaymentTableDAO
 import com.swacorp.mx.domain.AccountDataServices;
 import com.swacorp.mx.entrypoints.rest.DataRequest;
 
-public class DataProviderTest {
+public class CustomersDataBaseTest {
 
 	private CustomerTableDAO customerTableDao = mock(CustomerTableDAO.class);
 	private EmployeePaymentTableDAO employeePaymentTableDAO = mock(EmployeePaymentTableDAO.class);
-	private AccountDataServices dataService = new DataProvider(customerTableDao, employeePaymentTableDAO);
+	private AccountDataServices dataService = new CustomersDataBase(customerTableDao, employeePaymentTableDAO);
 	private String customerId = "1111";
 	private String ID = "111";
 	private double RATE = 10;

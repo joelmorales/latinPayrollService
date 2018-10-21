@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.swacorp.mx.crosscutting.CustomerAccount;
 import com.swacorp.mx.crosscutting.CustomerPayment;
-import com.swacorp.mx.dataproviders.DataProvider;
+import com.swacorp.mx.dataproviders.CustomersDataBase;
 import com.swacorp.mx.dataproviders.database.persistance.CustomerTableDAO;
 import com.swacorp.mx.dataproviders.database.persistance.EmployeePaymentTableDAO;
 import com.swacorp.mx.entrypoints.rest.DataRequest;
@@ -28,7 +28,7 @@ public class DataProviderIntegrationTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DataProviderIntegrationTest.class);
 
 	@Autowired
-	DataProvider dataProvider;
+	CustomersDataBase dataProvider;
 
 	@Autowired
 	CustomerTableDAO customerTableDAO;

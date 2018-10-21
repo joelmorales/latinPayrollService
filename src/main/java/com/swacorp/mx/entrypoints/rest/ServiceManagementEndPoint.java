@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.swacorp.mx.crosscutting.ApplicationException;
-import com.swacorp.mx.crosscutting.PayrollResponse;
+import com.swacorp.mx.crosscutting.ServiceResponse;
 import com.swacorp.mx.domain.Payroll;
 
 @RestController
@@ -37,10 +37,10 @@ public class ServiceManagementEndPoint {
 	}*/
 	
 	@RequestMapping(value = API_PAY_PATH, method = RequestMethod.GET)
-	public @ResponseBody PayrollResponse sendPayroll(@RequestParam String id, @RequestParam Double hours ) {
+	public @ResponseBody ServiceResponse sendPayroll(@RequestParam String id, @RequestParam Double hours ) {
 		try {
 			DataRequest data = getDataRequest(id, hours);
-			return payroll.processRequest(data);
+			return payroll.processClientPayment(data);
 		} catch (Exception ex) {
 			throw new ApplicationException("App",ex);
 		}
