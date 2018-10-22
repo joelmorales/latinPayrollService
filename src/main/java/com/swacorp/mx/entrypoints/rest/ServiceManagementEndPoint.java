@@ -23,6 +23,7 @@ public class ServiceManagementEndPoint {
 	public static final String API_PAY_PATH = "/start";
 	public static final String API_MNT_PATH = "/setup";
 	
+	
 	private Payroll payroll;
 
 	public ServiceManagementEndPoint(Payroll payroll) {
